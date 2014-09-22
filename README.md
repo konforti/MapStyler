@@ -33,3 +33,10 @@ Google Maps API Simple Styled Map Tool http://konforti.net/MapStyler/example
     document.getElementsByTagName('textarea')[0].value = e.detail.json;
   });
   ```
+5. Locate the Map and the Style Tray in your page:
+
+  ```html
+  <div id="style-tray"></div>
+  <div id="map-canvas"></div>
+  ```
+	

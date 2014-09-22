@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"></script>
+  <script src="../MapStyler.js" type="text/javascript"></script>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <script>
+    function initialize() {
+      var mapOptions = {
+        center: { lat: 51, lng: 0},
+        zoom: 8
+      };
+      var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+      var json = document.getElementsByTagName('textarea')[0].value;
+      var styler = new MapStyler( map, json );
+      styler.bootstrap();
+      document.addEventListener('mapStylerUpdate', function(e) {
+        document.getElementsByTagName('textarea')[0].value = e.detail.json;
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+</head>
+<body>
+  <div id="style-tray"></div>
+  <div id="map-canvas"></div>
+  <textarea id="json-container"  placeholder="Styled Maps JSON"></textarea>
+</body>
+</html>

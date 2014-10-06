@@ -5,38 +5,41 @@ Google Maps API Simple Styled Map Tool
 
 ## Usage
 
-1. Create a map:
+* Create a map:
+	
+	```js
+	var mapOptions = {
+	  center: { lat: 51, lng: 0},
+	  zoom: 8
+	};
+	var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+	```
 
-```javascript
-var mapOptions = {
-  center: { lat: 51, lng: 0},
-  zoom: 8
-};
-var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
-```
-2. Get the JSON:
+* Get the JSON:
 
-```javascript
-var json = document.getElementsByTagName('textarea')[0].value;
-```
+	```js
+	var json = document.getElementsByTagName('textarea')[0].value;
+	```
   
-3. Initialize the app:
+* Initialize the app:
 
-```javascript
-var styler = new MapStyler( map, json );
-styler.bootstrap();
-```
-4. Collect the new creaed JSON:
+	```js
+	var styler = new MapStyler( map, json );
+	styler.bootstrap();
+	```
 
-```javascript
-document.addEventListener('mapStylerUpdate', function(e) {
-document.getElementsByTagName('textarea')[0].value = e.detail.json;
-});
-```
-5. Locate the Map and the Style Tray in your page:
+* Collect the new creaed JSON:
 
-  ```html
-  <div id="style-tray"></div>
-  <div id="map-canvas"></div>
-  ```
+	```js
+	document.addEventListener('mapStylerUpdate', function(e) {
+	document.getElementsByTagName('textarea')[0].value = e.detail.json;
+	});
+	```
+
+* Locate the Map and the Style Tray in your page:
+
+	```html
+	<div id="style-tray"></div>
+	<div id="map-canvas"></div>
+	```
 	

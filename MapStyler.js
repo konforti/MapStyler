@@ -85,6 +85,18 @@ var MapStyler = function( map, json ) {
    * Appends a new Style.
    */
   self.appendItem = function() {
+    if (self.index > self.styles.length) {
+      var last = document.getElementById( "item-" + ( self.index - 1 ) );
+      if ( last ) {
+        last.style.border = '1px solid #2090ff';
+        setTimeout(function() {
+          last.removeAttribute('style');
+        }, 500);
+      }
+
+      return;
+    }
+
     var item = self.getItem();
     document.getElementById( "items" ).appendChild( item );
     self.index++;
